@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Career Assessment Page</title>
+    <script src="jquery-3.7.1.min.js"></script>
+    <script src="popper.min.js"></script>
+    <script src="bootstrap.min.js"></script>
+    <script src="index.js"></script>
+    <link rel="stylesheet" href="index.css">
+    
+    <link rel="stylesheet" href="bootstrap.min.css">
+    <link rel="stylesheet" href="index.css">
+</head>
+<body class="container">
+    <div class="alert alert-primary" role="alert">
+        <h1 >Career Assessment</h1>
+        <div class="form-group">
+          <label for="">Title</label>
+          <input type="text"
+            class="form-control" name="title" id="title" aria-describedby="helpId" placeholder="Add Career Title">
+          <small id="titlehelp" class="form-text text-muted">Enter tite of Career Assessment</small>
+        </div>
+        <div class="form-group">
+          <label for="">Description</label>
+          <input type="text"
+            class="form-control" name="description" id="description" aria-describedby="helpId" placeholder="Add Career Description">
+          <small id="descriptionhelp" class="form-text text-muted">Enter Career Assessment Description</small>
+        </div>
+        <div class="form-group">
+          <label for="">Salary</label>
+          <input type="text"
+            class="form-control" name="salary" id="salary" aria-describedby="helpId" placeholder="Add Salary Range">
+          <small id="salaryhelp" class="form-text text-muted">Enter Career Assessment Salary-Range</small>
+        </div>
+        <button class="btn btn-info" id="addbtn" >Add Career</button>
+    </div>
+    <div class="alert alert-success" role="alert">
+        <div id="careerload"></div>
+    </div>
+
+    
+    <!-- Modal -->
+    <div class="modal fade" id="updatemodel" tabindex="-1" role="dialog" aria-labelledby="modelTitleId" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Title</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                </div>
+                <div class="modal-body">
+                    <input type="hidden" id="updateId">
+                    <div class="form-group">
+                      <label for="updateTitle">Title</label>
+                      <input type="text"
+                        class="form-control" name="updateTitle" id="updateTitle" aria-describedby="updateTitleHelp" placeholder="">
+                      <small id="updateTitleHelp" class="form-text text-muted">Update Career Assessment Title</small>
+                    </div>
+                    <div class="form-group">
+                      <label for="updateDescription">Update Description</label>
+                      <textarea class="form-control" name="updateDescription" id="updateDescription" rows="3"></textarea>
+                    </div>
+                    <div class="form-group">
+                      <label for="updateSalary">Update Salary </label>
+                      <input type="text"
+                        class="form-control" name="updateSalary" id="updateSalary" aria-describedby="updateSalaryHelp" placeholder="">
+                      <small id="updateSalaryHlep" class="form-text text-muted">Update Salary Range</small>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button id="updateSave" class="btn btn-primary">Update Save</button>
+                    <button type="close" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

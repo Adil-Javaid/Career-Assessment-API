@@ -1,0 +1,16 @@
+{
+  "careers": [
+    {
+      "id": "3868",
+      "title": "Full Stack Web Developer",
+      "description": "Create a websites front and backend both. Salary range for Full Stack Web Developer is ",
+      "salary": "60000 - 100000"
+    },
+    {
+      "id": "b9f0",
+      "title": "Web Master",
+      "description": "A webmaster is the administrator of a website. Salary range for Web Master is",
+      "salary": "20000 - 30000"
+    }
+  ]
+}
