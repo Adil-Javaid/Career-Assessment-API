@@ -71,7 +71,7 @@ function handleDelete(){
 
   function loadCareer() {
     $.ajax({
-      url: "http://localhost:3000/careers",
+      url: "http://127.0.0.1:3000/data",
       method: "GET",
       success: function(response) {
         console.log(response);
