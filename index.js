@@ -57,8 +57,11 @@ function handleDelete(){
   var parentDiv = btn.closest(".careerload");
   let id = parentDiv.attr("data-id");
   console.log(id);
+  var url = 'http://localhost:3000/careers/${id}';
+  console.log("GET URL:", url);
   $.ajax({
-    url: "http://localhost:3000/careers/" + id,
+    url: "http://localhost:3000/careers/" + String(id),
+    contentType: "application/json",
     method: "DELETE",
     success: function(){
       loadCareer();
@@ -68,7 +71,7 @@ function handleDelete(){
 
   function loadCareer() {
     $.ajax({
-      url: "http://localhost:3000/careers",
+      url: "https://json-serve-e9591c19e2a8.herokuapp.com/",
       method: "GET",
       success: function(response) {
         console.log(response);

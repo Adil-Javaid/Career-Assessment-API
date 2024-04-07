@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Career Search</title>
+    <script src="jquery-3.7.1.min.js"></script>
+    <script src="bootstrap.min.js"></script>
+    <link rel="stylesheet" href="bootstrap.min.css">
+</head>
+<body class="container">
+    <div class="search-container">
+        <input type="text" id="searchInput" placeholder="Search for a career...">
+        <button id="searchBtn" class="btn btn-primary">Search</button>
+    </div>
+    <div id="searchResults" class="mt-3"></div>
+
+    <script>
+        $(document).ready(function() {
+            $("#searchBtn").click(function() {
+                var searchTerm = $("#searchInput").val();
+                if (searchTerm.trim() !== "") {
+                    searchCareers(searchTerm);
+                } else {
+                    $("#searchResults").html("<p>Please enter a search term.</p>");
+                }
+            });
+
+            function searchCareers(searchTerm) {
+                $.ajax({
+                    url: "http://localhost:3000/careers?title=" + searchTerm,
+                    method: "GET",
+                    success: function(response) {
+                        displaySearchResults(response);
+                    },
+                    error: function(xhr, status, error) {
+                        console.error(error);
+                    }
+                });
+            }
+
+            function displaySearchResults(results) {
+                var searchResults = $("#searchResults");
+                searchResults.empty();
+                if (results.length === 0) {
+                    searchResults.html("<p>No results found.</p>");
+                } else {
+                    for (var i = 0; i < results.length; i++) {
+                        var career = results[i];
+                        searchResults.append(`<div class="card">
+                            <div class="card-body">
+                                <h5 class="card-title">${career.title}</h5>
+                                <p class="card-text">${career.description} ${career.salary}</p>
+                            </div>
+                        </div>`);
+                    }
+                }
+            }
+        });
+    </script>
+</body>
+</html>
