@@ -71,7 +71,7 @@ function handleDelete(){
 
   function loadCareer() {
     $.ajax({
-      url: "https://json-serve-e9591c19e2a8.herokuapp.com/",
+      url: "http://localhost:3000/careers",
       method: "GET",
       success: function(response) {
         console.log(response);
